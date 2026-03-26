@@ -1,1 +1,4 @@
 bucket-policy.json
+lambda-trust-policy.json
+lambda/counter.zip
+response.json
