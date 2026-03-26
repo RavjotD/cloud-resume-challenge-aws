@@ -248,17 +248,21 @@
 
   </div>
 
-  <!-- VISITOR COUNTER -->
+ <!-- VISITOR COUNTER -->
   <div class="counter">
     <p>Visitors: <span id="count">...</span></p>
   </div>
 
   <script>
-    // This will call your API Gateway endpoint once Lambda is set up in Week 4
-    // For now it just shows the placeholder
-    document.getElementById('count').innerText = '—';
-  </script>
+  fetch('https://gmps5ylov9.execute-api.ca-central-1.amazonaws.com/production/count')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('count').innerText = data.count;
+    })
+    .catch(() => {
+      document.getElementById('count').innerText = '—';
+    });
+</script>
 
 </body>
-
 </html>
