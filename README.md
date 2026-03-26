@@ -1,7 +1,8 @@
 # Cloud Resume Challenge — AWS
 
-**Live Site:** http://ravjotduhra-cloud-resume.s3-website.ca-central-1.amazonaws.com
+**Live Site:** https://d19mfjmr0dtnqm.cloudfront.net/
 *(HTTPS + CloudFront URL will replace this in Week 2)*
+
 
 ---
 
@@ -171,8 +172,9 @@ Add these secrets to your GitHub repo under
 
 - **Week 1 — Mar 2026:** S3 static website live.
   HTML resume deployed. GitHub repo initialized.
-- **Week 2 — *(upcoming)*:** CloudFront + HTTPS
-- **Week 3 — *(upcoming)*:** DNS via Route 53
+- **Week 2 — Mar 2026:** CloudFront distribution deployed.
+  HTTPS live at https://[your-cloudfront-domain].cloudfront.net.
+  Cache invalidation tested manually.- **Week 3 — *(upcoming)*:** DNS via Route 53
 - **Week 4 — *(upcoming)*:** Lambda + DynamoDB visitor counter
 - **Week 5 — *(upcoming)*:** API Gateway
 - **Week 6 — *(upcoming)*:** Full Terraform IaC
