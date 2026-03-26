@@ -2,3 +2,7 @@ bucket-policy.json
 lambda-trust-policy.json
 lambda/counter.zip
 response.json
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
