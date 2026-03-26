@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ravjot Duhra — Cloud Resume</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #0f1117;
@@ -15,7 +21,12 @@
       padding: 0 24px;
       line-height: 1.7;
     }
-    h1 { font-size: 2.2rem; color: #fff; }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #fff;
+    }
+
     h2 {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -25,31 +36,53 @@
       border-bottom: 1px solid #1e2533;
       padding-bottom: 6px;
     }
-    h3 { font-size: 1rem; color: #fff; }
+
+    h3 {
+      font-size: 1rem;
+      color: #fff;
+    }
+
     .subtitle {
       color: #8096b0;
       font-size: 0.95rem;
       margin-top: 6px;
     }
+
     .meta {
       color: #8096b0;
       font-size: 0.85rem;
       margin-bottom: 6px;
     }
+
     ul {
       padding-left: 20px;
       color: #cbd5e1;
       font-size: 0.92rem;
     }
-    li { margin-bottom: 5px; }
-    .section { margin-bottom: 28px; }
-    .job { margin-bottom: 20px; }
-    .cert-list { list-style: none; padding: 0; }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .job {
+      margin-bottom: 20px;
+    }
+
+    .cert-list {
+      list-style: none;
+      padding: 0;
+    }
+
     .cert-list li {
       padding: 6px 0;
       border-bottom: 1px solid #1e2533;
       font-size: 0.92rem;
     }
+
     .badge {
       display: inline-block;
       background: #1e2533;
@@ -60,22 +93,31 @@
       margin-right: 6px;
       margin-bottom: 6px;
     }
+
     .counter {
       margin-top: 40px;
       text-align: center;
       font-size: 0.85rem;
       color: #8096b0;
     }
-    a { color: #ff9900; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    a {
+      color: #ff9900;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
   <h1>Ravjot Duhra</h1>
   <p class="subtitle">
-    Cloud &amp; Software Engineer &nbsp;·&nbsp; Surrey, BC, Canada<br/>
+    Technical Infrastructure &amp; Systems Engineer &nbsp;·&nbsp; Surrey, BC, Canada<br />
     <a href="https://www.linkedin.com/in/ravjot-duhra/">LinkedIn</a>
     &nbsp;·&nbsp;
     <a href="https://github.com/RavjotD">GitHub</a>
@@ -84,11 +126,13 @@
   <!-- ABOUT -->
   <h2>About</h2>
   <div class="section">
-    <p>Software engineer with a background in enterprise IT support, full-stack
-    development, AI model evaluation, and SaaS technical support. Currently
-    pursuing AWS Solutions Architect Associate and building hands-on cloud
-    infrastructure projects. Targeting a cloud engineering or solutions
-    architect role in 2026.</p>
+    <p>Systems and infrastructure engineer with 3+ years delivering technical
+      solutions across enterprise integrations, cloud deployments, and full-stack
+      application lifecycles. Experienced in API diagnostics, cross-functional
+      stakeholder communication, and production system commissioning. Holds three
+      AWS credentials and actively pursuing Solutions Architect Associate. Brings
+      a methodical, documentation-driven approach to resolving complex technical
+      issues and supporting operational continuity.</p>
   </div>
 
   <!-- CERTIFICATIONS -->
@@ -114,13 +158,12 @@
     <span class="badge">React</span>
     <span class="badge">REST APIs</span>
     <span class="badge">Terraform</span>
-    <span class="badge">GitHub Actions</span>
     <span class="badge">MySQL</span>
     <span class="badge">PostgreSQL</span>
     <span class="badge">Azure AD</span>
     <span class="badge">PowerShell</span>
     <span class="badge">Linux</span>
-    <span class="badge">DNS</span>
+    <span class="badge">Networking</span>
   </div>
 
   <!-- EXPERIENCE -->
@@ -132,10 +175,10 @@
       <p class="meta">May 2025 – Present</p>
       <ul>
         <li>Diagnose REST API authentication failures, webhook errors, and
-        payment gateway integration issues for enterprise MSP clients.</li>
+          payment gateway integration issues for enterprise MSP clients.</li>
         <li>60%+ first-day resolution rate across 30+ weekly Zendesk cases.</li>
         <li>Reproduce defects in controlled environments and log structured
-        replication reports for L3 engineering teams.</li>
+          replication reports for L3 engineering teams.</li>
       </ul>
     </div>
 
@@ -164,7 +207,7 @@
       <ul>
         <li>Enterprise support across Azure Active Directory and Microsoft 365.</li>
         <li>Automated user provisioning with PowerShell — reduced onboarding
-        time by 40%.</li>
+          time by 40%.</li>
         <li>Maintained 99% uptime SLA compliance.</li>
       </ul>
     </div>
@@ -177,19 +220,26 @@
 
     <div class="job">
       <h3>Cloud Resume Challenge — AWS</h3>
-      <p class="meta">S3 · CloudFront · Lambda · DynamoDB · API Gateway
-      · Terraform · GitHub Actions</p>
+      <p class="meta">
+        S3 · CloudFront · Lambda · DynamoDB ·
+        API Gateway · Terraform · GitHub Actions
+      </p>
       <ul>
+        <li>Live at:
+          <a href="https://d19mfjmr0dtnqm.cloudfront.net/">
+            [your-cloudfront-domain].cloudfront.net
+          </a>
+        </li>
         <li>Serverless resume hosted on AWS — you are looking at it.</li>
         <li>Visitor counter powered by Lambda and DynamoDB.</li>
-        <li>Deployed and managed entirely with Terraform and GitHub Actions CI/CD.</li>
+        <li>Deployed and managed entirely with Terraform and
+          GitHub Actions CI/CD.</li>
       </ul>
     </div>
-
     <div class="job">
       <h3>Secure Vault — Capstone Project</h3>
       <p class="meta">Spring Boot · Java · React · MySQL · AWS S3
-      · AWS EFS · AWS Amplify</p>
+        · AWS EFS · AWS Amplify</p>
       <ul>
         <li>AES-256 encrypted password and document storage application.</li>
         <li>AWS S3 and EFS storage architecture with MFA authentication.</li>
@@ -210,4 +260,5 @@
   </script>
 
 </body>
+
 </html>
