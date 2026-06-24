@@ -5,6 +5,14 @@ on:
     branches:
       - main
 
+# OIDC: the job mints a short-lived token (id-token: write) and exchanges it for
+# temporary AWS credentials by assuming the github-actions-deploy role. No static
+# AWS access keys are used or stored. contents: read is the least privilege the
+# checkout needs.
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   deploy:
     name: Deploy to AWS
@@ -14,11 +22,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Configure AWS credentials
+      - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy HTML to S3
@@ -29,7 +36,7 @@ jobs:
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
+            --paths "/index.html" "/"
 
       - name: Confirm deployment
         run: echo "Deployed successfully to https://d19mfjmr0dtnqm.cloudfront.net"
