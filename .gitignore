@@ -3,7 +3,15 @@ lambda-trust-policy.json
 lambda/counter.zip
 response.json
 terraform/.terraform/
-terraform/.terraform.lock.hcl
+# .terraform.lock.hcl is intentionally COMMITTED for reproducible provider
+# versions between local apply and CI. Do not ignore it.
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 .worktrees/
+
+# Terraform state & plans must never be committed (esp. in a public repo)
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/tfplan
+terraform/*.tfplan
+*.tfvars
