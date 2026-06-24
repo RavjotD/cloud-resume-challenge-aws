@@ -1,0 +1,34 @@
+# DRAFT — place at: cloud-resume-challenge-aws/.github/workflows/pr-check.yml
+# Validates the PR with NO AWS credentials and NO deploy (the existing deploy.yml
+# still owns the AWS deploy, on push to main = the PR merge). Confirm the lambda
+# test path/command below matches your repo before committing.
+name: PR Check
+on:
+  pull_request:
+    branches: ["main"]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test deps
+        run: pip install pytest boto3
+      - name: Lambda unit tests
+        # Adjust working-directory / path if your tests live elsewhere.
+        run: pytest -q
+        working-directory: lambda
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Terraform validate (no backend, no creds)
+        working-directory: terraform
+        run: |
+          terraform init -backend=false
+          terraform validate
