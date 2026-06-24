@@ -7,3 +7,10 @@ terraform/.terraform.lock.hcl
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 .worktrees/
+
+# Terraform state & plans must never be committed (esp. in a public repo)
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/tfplan
+terraform/*.tfplan
+*.tfvars
