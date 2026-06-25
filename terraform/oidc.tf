@@ -23,22 +23,6 @@ locals {
   )
 }
 
-# Account id for building the CloudFront distribution ARN below.
-data "aws_caller_identity" "current" {}
-
-# The CloudFront distribution the CI actually invalidates = the live site
-# (d19mfjmr0dtnqm.cloudfront.net, id E509QCC92CXK5), which is the value of the
-# CLOUDFRONT_DISTRIBUTION_ID GitHub secret. IMPORTANT: this is NOT the distribution
-# Terraform currently manages (aws_cloudfront_distribution.resume = E1GD177QZ8CDPX /
-# d1a154uj7j7dna, a stale duplicate from the original build). That drift is tracked
-# for reconciliation; until then the deploy role must grant invalidation on the LIVE
-# distribution so CI succeeds.
-variable "deploy_cloudfront_distribution_id" {
-  description = "ID of the live CloudFront distribution the CI invalidates (matches the CLOUDFRONT_DISTRIBUTION_ID secret)."
-  type        = string
-  default     = "E509QCC92CXK5"
-}
-
 # ─── OIDC PROVIDER ───────────────────────────────────────────────────────────
 #
 # The thumbprint is sourced dynamically from GitHub's OIDC TLS certificate chain
@@ -135,7 +119,7 @@ data "aws_iam_policy_document" "github_actions_deploy" {
     sid       = "InvalidateResumeDistribution"
     effect    = "Allow"
     actions   = ["cloudfront:CreateInvalidation"]
-    resources = ["arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${var.deploy_cloudfront_distribution_id}"]
+    resources = [aws_cloudfront_distribution.resume.arn]
   }
 }
 
